@@ -1,13 +1,8 @@
 from datetime import datetime
 import cv2
-from pyrebase import pyrebase
-import firebaseConfigFile
 import variables
 
 cap = cv2.VideoCapture(0)
-firebase = pyrebase.initialize_app(firebaseConfigFile.firebaseConfig)
-storage = firebase.storage()
-
 def Camera():
     a = datetime.now()
     while (True):

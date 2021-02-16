@@ -1,23 +1,23 @@
 from _datetime import datetime
 from pyrebase import pyrebase
 import firebaseConfigFile
-import variables
+from variables import Variables
+import cv2
 
 firebase=pyrebase.initialize_app(firebaseConfigFile.firebaseConfig)
 storage = firebase.storage()
 
-def upload():
+def upload(var_data):
 
-    s = variables.camera_data()
-    a=datetime.now()
+    a = datetime.now()
 
     while (True):
-
         b=datetime.now()
 
         if (b-a).seconds>=1:
             a=b
-            img = s.get_cam_data()
+            img = var_data.get_cam_data()
 
             if img != "":
                 storage.child("1.jpg").put("{}".format(img))
+                print("IMG is not null")

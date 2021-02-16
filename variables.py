@@ -1,16 +1,12 @@
+class camera_data():
 
-class Variables():
-
-    def __init__(self):
-        print("...Initializing Camera Datas")
-        self._img = ''
-        self._relay_state = False
+    __img=''
 
     def get_cam_data(self):
-        return self._img
+        return camera_data.__img
 
     def set_cam_data(self, img):
-        self._img = img
+        camera_data.__img = img
 
     def clear_cam_data(self):
         pass
@@ -18,8 +14,10 @@ class Variables():
     def cam_data_lenght(self):
         pass
 
-    def get_relay_val(self):
-        return self.set_relay_val
 
-    def set_relay_val(self, state_val):
-        self._relay_state = state_val
+class reyal_val():
+    def get_reyal_val(self):
+        pass
+
+    def set_reyal_val(self):
+        pass

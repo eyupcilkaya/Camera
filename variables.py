@@ -4,7 +4,7 @@ class Variables():
     def __init__(self):
         print("...Initializing Camera Datas")
         self._img = ''
-        self._relay_state = False
+        self._relay_state = ""
 
     def get_cam_data(self):
         return self._img
@@ -19,7 +19,7 @@ class Variables():
         pass
 
     def get_relay_val(self):
-        return self.set_relay_val
+        return self._relay_state
 
     def set_relay_val(self, state_val):
         self._relay_state = state_val

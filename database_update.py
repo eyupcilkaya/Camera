@@ -1,13 +1,12 @@
 from _datetime import datetime
 from pyrebase import pyrebase
 import firebaseConfigFile
-from variables import Variables
-import cv2
 
 firebase=pyrebase.initialize_app(firebaseConfigFile.firebaseConfig)
 storage = firebase.storage()
+db = firebase.database()
 
-def upload(var_data):
+def Update(var_data):
 
     a = datetime.now()
 
@@ -21,3 +20,6 @@ def upload(var_data):
             if img != "":
                 storage.child("1.jpg").put("{}".format(img))
                 print("IMG is not null")
+        data = db.child("Role").get()
+        role = data.val()
+        var_data.set_relay_val(role)

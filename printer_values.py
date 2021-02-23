@@ -1,17 +1,19 @@
+
+import serial
 import pandas as pd
-
-f = open("log.txt")
-lines=f.readlines()
-
-for line in lines:
-    line=line.split(" ")
+serialcon=serial.Serial(port="serial_port",baudrate=115200,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS,timeout=1)
+while 1:
+    x=serialcon.readline().decode('utf-8').rstrip()
+    print(x)
+    if x[0:17] == "SD printing byte ":
+        print(x[17:],"tamamlandi")
+    line=x.split(" ")
     v=pd.Series(line)
-    if v[0]=="ok":
-        for i in v:
-            if i[0:2] in "T:":
-                print(i[2:])
+    for i in v:
+        if i[0:2] in "T:":
+            print("T SICAKLIK:",i[2:])
 
-            elif i[0:2] in "B:":
-                print(i[2:])
-            else:
-                continue
+        elif i[0:2] in "B:":
+            print("B SICAKLIK:",i[2:])
+        else:
+            continue

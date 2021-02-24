@@ -6,15 +6,16 @@ firebase=pyrebase.initialize_app(firebaseConfigFile.firebaseConfig)
 storage = firebase.storage()
 db = firebase.database()
 
-def Update(var_data):
+
+def update(var_data):
 
     a = datetime.now()
 
-    while (True):
-        b=datetime.now()
+    while True:
+        b = datetime.now()
 
-        if (b-a).seconds>=1:
-            a=b
+        if (b-a).seconds >= 1:
+            a = b
             img = var_data.get_cam_data()
 
             if img != "":

@@ -1,5 +1,5 @@
 
-class Variables():
+class Variables:
 
     def __init__(self):
         print("...Initializing Camera Datas")

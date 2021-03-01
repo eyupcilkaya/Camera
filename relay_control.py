@@ -7,12 +7,11 @@ io.setup(powerpin, io.OUT)
 io.output(powerpin, False)
 
 
-def role(var_data):
+def relay(var_data):
     while True:
 
-        _role = var_data.get_relay_val()
-        print("role")
-        if _role == "1":
+        _relay = var_data.get_relay_val()
+        if _relay == "1":
             io.output(powerpin, True)
         else:
             io.output(powerpin, False)
